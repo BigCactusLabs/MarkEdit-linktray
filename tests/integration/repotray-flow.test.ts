@@ -2,7 +2,7 @@
 
 import { describe, expect, it, vi } from "vitest";
 
-import { registerRepoTrayCommand } from "../../src/markedit/command";
+import { registerLinkTrayCommand } from "../../src/markedit/command";
 import { createQuickSwitcherAdapter, type QuickSwitcher } from "../../src/ui/quick-switcher";
 
 function createFileInfo(filePath: string) {
@@ -16,7 +16,7 @@ function createFileInfo(filePath: string) {
   };
 }
 
-describe("RepoTray integration flow", () => {
+describe("LinkTray integration flow", () => {
   it("groups available links first, collapses missing links by default, and only opens existing targets", async () => {
     let quickSwitcher: QuickSwitcher | undefined;
     const openFile = vi.fn().mockResolvedValue(true);
@@ -33,7 +33,7 @@ describe("RepoTray integration flow", () => {
       return existingPaths.has(path) ? createFileInfo(path) : undefined;
     });
 
-    registerRepoTrayCommand(
+    registerLinkTrayCommand(
       {
         addMainMenuItem,
         getFileContent: vi.fn(async () => "Open [[beta]], then [Alpha](../specs/alpha.md), then [[beta]]."),

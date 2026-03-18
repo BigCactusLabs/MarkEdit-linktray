@@ -1,4 +1,4 @@
-# RepoTray Smoke Corpus
+# LinkTray Smoke Corpus
 
 Use this note to smoke-test the picker against a slightly larger corpus.
 

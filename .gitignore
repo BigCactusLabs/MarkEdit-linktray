@@ -1,5 +1,5 @@
 node_modules/
 dist/*
-!dist/markedit-repotray.js
+!dist/markedit-linktray.js
 .DS_Store
 docs/plans/

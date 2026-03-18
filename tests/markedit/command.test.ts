@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
 
-import { registerRepoTrayCommand } from "../../src/markedit/command";
+import { registerLinkTrayCommand } from "../../src/markedit/command";
 
 function createFileInfo(filePath: string) {
   return {
@@ -51,11 +51,11 @@ function createMarkEditMock(options?: {
   };
 }
 
-describe("registerRepoTrayCommand", () => {
+describe("registerLinkTrayCommand", () => {
   it("registers the command with MarkEdit", () => {
     const { markedit, addMainMenuItem, showPicker } = createMarkEditMock();
 
-    registerRepoTrayCommand(markedit, showPicker);
+    registerLinkTrayCommand(markedit, showPicker);
 
     expect(addMainMenuItem).toHaveBeenCalledTimes(1);
     expect(addMainMenuItem.mock.calls[0]?.[0]).toMatchObject({
@@ -72,7 +72,7 @@ describe("registerRepoTrayCommand", () => {
       existingPaths: ["/workspace/docs/specs/plan.md"]
     });
 
-    registerRepoTrayCommand(markedit, showPicker);
+    registerLinkTrayCommand(markedit, showPicker);
     await addMainMenuItem.mock.calls[0]?.[0].action();
 
     expect(getFileInfo).toHaveBeenCalledWith();
@@ -97,7 +97,7 @@ describe("registerRepoTrayCommand", () => {
       ]
     });
 
-    registerRepoTrayCommand(markedit, showPicker);
+    registerLinkTrayCommand(markedit, showPicker);
     await addMainMenuItem.mock.calls[0]?.[0].action();
 
     expect(showPicker).toHaveBeenCalledWith([
@@ -116,7 +116,7 @@ describe("registerRepoTrayCommand", () => {
       documentText: "No repo links here."
     });
 
-    registerRepoTrayCommand(markedit, showPicker);
+    registerLinkTrayCommand(markedit, showPicker);
     await addMainMenuItem.mock.calls[0]?.[0].action();
 
     expect(showPicker).not.toHaveBeenCalled();
@@ -132,13 +132,13 @@ describe("registerRepoTrayCommand", () => {
       documentText: "Open [Plan](../specs/plan.md)"
     });
 
-    registerRepoTrayCommand(markedit, showPicker);
+    registerLinkTrayCommand(markedit, showPicker);
     await addMainMenuItem.mock.calls[0]?.[0].action();
 
     expect(showPicker).not.toHaveBeenCalled();
     expect(showAlert).toHaveBeenCalledWith({
-      title: "RepoTray unavailable",
-      message: "Open a saved Markdown file before running RepoTray."
+      title: "LinkTray unavailable",
+      message: "Open a saved Markdown file before running LinkTray."
     });
   });
 });

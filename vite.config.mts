@@ -12,7 +12,7 @@ export default defineConfig({
     emptyOutDir: true,
     lib: {
       entry: "main.ts",
-      fileName: () => "markedit-repotray.js",
+      fileName: () => "markedit-linktray.js",
       formats: ["cjs"]
     },
     outDir: "dist",

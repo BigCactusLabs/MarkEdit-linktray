@@ -2,7 +2,7 @@ import type { PickerItem } from "../model/picker-item";
 import quickSwitcherCss from "../styles/quick-switcher.css?inline";
 
 const fallbackQuickSwitcherCss = `
-.repotray-overlay {
+.linktray-overlay {
   position: fixed;
   inset: 0;
   z-index: 10001;
@@ -14,7 +14,7 @@ const fallbackQuickSwitcherCss = `
   backdrop-filter: blur(6px);
 }
 
-.repotray-panel {
+.linktray-panel {
   width: min(43rem, 100%);
   max-height: min(78vh, 42rem);
   display: grid;
@@ -35,7 +35,7 @@ const fallbackQuickSwitcherCss = `
   overflow: hidden;
 }
 
-.repotray-toolbar {
+.linktray-toolbar {
   display: grid;
   gap: 0.28rem;
   padding: 0.82rem 0.98rem 0.72rem;
@@ -44,7 +44,7 @@ const fallbackQuickSwitcherCss = `
     linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(243, 246, 250, 0.92));
 }
 
-.repotray-toolbar__eyebrow {
+.linktray-toolbar__eyebrow {
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -52,14 +52,14 @@ const fallbackQuickSwitcherCss = `
   color: rgba(78, 95, 114, 0.82);
 }
 
-.repotray-toolbar__headline {
+.linktray-toolbar__headline {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
 }
 
-.repotray-toolbar__title {
+.linktray-toolbar__title {
   margin: 0;
   font-size: clamp(0.98rem, 0.92rem + 0.36vw, 1.12rem);
   font-weight: 640;
@@ -67,13 +67,13 @@ const fallbackQuickSwitcherCss = `
   color: rgb(19, 31, 44);
 }
 
-.repotray-toolbar__count {
+.linktray-toolbar__count {
   font-size: 0.75rem;
   color: rgba(72, 88, 106, 0.86);
   font-variant-numeric: tabular-nums;
 }
 
-.repotray-searchRow {
+.linktray-searchRow {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
@@ -82,7 +82,7 @@ const fallbackQuickSwitcherCss = `
   border-bottom: 1px solid rgba(63, 77, 93, 0.1);
 }
 
-.repotray-searchRow__label {
+.linktray-searchRow__label {
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -90,7 +90,7 @@ const fallbackQuickSwitcherCss = `
   color: rgba(78, 95, 114, 0.78);
 }
 
-.repotray-search {
+.linktray-search {
   width: 100%;
   border: 0;
   outline: 0;
@@ -101,17 +101,17 @@ const fallbackQuickSwitcherCss = `
   font-size: 0.92rem;
 }
 
-.repotray-search::placeholder {
+.linktray-search::placeholder {
   color: rgba(103, 118, 136, 0.78);
 }
 
-.repotray-body {
+.linktray-body {
   overflow: auto;
   scrollbar-gutter: stable;
   overscroll-behavior: contain;
 }
 
-.repotray-sectionLabel {
+.linktray-sectionLabel {
   display: block;
   padding: 0.68rem 0.98rem 0.45rem;
   font-size: 0.66rem;
@@ -121,13 +121,13 @@ const fallbackQuickSwitcherCss = `
   color: rgba(78, 95, 114, 0.78);
 }
 
-.repotray-list {
+.linktray-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.repotray-summary {
+.linktray-summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -142,21 +142,21 @@ const fallbackQuickSwitcherCss = `
   text-align: left;
 }
 
-.repotray-summary__label {
+.linktray-summary__label {
   font-size: 0.82rem;
   font-weight: 620;
 }
 
-.repotray-summary__meta {
+.linktray-summary__meta {
   font-size: 0.74rem;
   color: rgba(78, 95, 114, 0.82);
 }
 
-.repotray-summary.repotray-item--selected {
+.linktray-summary.linktray-item--selected {
   background: rgba(68, 103, 145, 0.08);
 }
 
-.repotray-item {
+.linktray-item {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: 0.14rem 0.72rem;
@@ -166,65 +166,65 @@ const fallbackQuickSwitcherCss = `
   transition: background-color 140ms ease, border-color 140ms ease, opacity 140ms ease;
 }
 
-.repotray-item + .repotray-item,
-.repotray-list + .repotray-sectionLabel,
-.repotray-summary + .repotray-sectionLabel,
-.repotray-summary + .repotray-list {
+.linktray-item + .linktray-item,
+.linktray-list + .linktray-sectionLabel,
+.linktray-summary + .linktray-sectionLabel,
+.linktray-summary + .linktray-list {
   border-top: 1px solid rgba(63, 77, 93, 0.08);
 }
 
-.repotray-item__body {
+.linktray-item__body {
   display: grid;
   gap: 0.12rem;
 }
 
-.repotray-item__symbol {
+.linktray-item__symbol {
   width: 0.48rem;
   height: 0.48rem;
   margin-top: 0.38rem;
   border-radius: 999px;
 }
 
-.repotray-item__symbol--existing {
+.linktray-item__symbol--existing {
   background: rgb(88, 168, 132);
   box-shadow: 0 0 0 3px rgba(88, 168, 132, 0.12);
-  animation: repotray-status-pulse 2.8s ease-in-out infinite;
+  animation: linktray-status-pulse 2.8s ease-in-out infinite;
 }
 
-.repotray-item__symbol--missing {
+.linktray-item__symbol--missing {
   border: 1.5px solid rgba(191, 88, 88, 0.72);
   background: rgba(191, 88, 88, 0.14);
 }
 
-.repotray-item--selected {
+.linktray-item--selected {
   border-left-color: rgba(53, 101, 164, 0.9);
   background: rgba(68, 103, 145, 0.08);
 }
 
-.repotray-item__filename {
+.linktray-item__filename {
   font-size: 0.92rem;
   font-weight: 620;
   letter-spacing: -0.01em;
   color: rgb(20, 31, 43);
 }
 
-.repotray-item__path {
+.linktray-item__path {
   color: rgba(79, 93, 110, 0.92);
   font-size: 0.79rem;
 }
 
-.repotray-item--missing {
+.linktray-item--missing {
   opacity: 0.62;
 }
 
-.repotray-empty {
+.linktray-empty {
   margin: 0;
   padding: 1rem 0.98rem 1.15rem;
   color: rgba(79, 93, 110, 0.9);
   font-size: 0.84rem;
 }
 
-@keyframes repotray-status-pulse {
+@keyframes linktray-status-pulse {
   0%,
   100% {
     box-shadow: 0 0 0 3px rgba(88, 168, 132, 0.1);
@@ -238,7 +238,7 @@ const fallbackQuickSwitcherCss = `
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .repotray-item__symbol--existing {
+  .linktray-item__symbol--existing {
     animation: none;
   }
 }
@@ -281,8 +281,8 @@ type QuickSwitcherView = {
   showMissingSummary: boolean;
 };
 
-const ROOT_ID = "markedit-repotray-root";
-const STYLE_SELECTOR = "style[data-repotray-style]";
+const ROOT_ID = "markedit-linktray-root";
+const STYLE_SELECTOR = "style[data-linktray-style]";
 
 export function createQuickSwitcher(
   items: PickerItem[],
@@ -404,7 +404,7 @@ export function createQuickSwitcherAdapter(options: QuickSwitcherAdapterOptions)
       }
 
       root.innerHTML = controller.render();
-      input = root.querySelector<HTMLInputElement>(".repotray-search");
+      input = root.querySelector<HTMLInputElement>(".linktray-search");
       bindOverlayEvents(root, controller, render);
       input?.focus();
       input?.setSelectionRange(input.value.length, input.value.length);
@@ -466,27 +466,27 @@ function renderQuickSwitcherMarkup(
   const rows = view.interactiveEntries.map((entry, index) => {
     if (entry.type === "missing-summary") {
       return [
-        `<button class="repotray-summary${index === selectedIndex ? " repotray-item--selected" : ""}" data-index="${index}" type="button">`,
-        `<span class="repotray-summary__label">Missing (${entry.count})</span>`,
-        '<span class="repotray-summary__meta">Show hidden links</span>',
+        `<button class="linktray-summary${index === selectedIndex ? " linktray-item--selected" : ""}" data-index="${index}" type="button">`,
+        `<span class="linktray-summary__label">Missing (${entry.count})</span>`,
+        '<span class="linktray-summary__meta">Show hidden links</span>',
         "</button>"
       ].join("");
     }
 
     const item = entry.item;
     const classes = [
-      "repotray-item",
-      item.status === "missing" ? "repotray-item--missing" : "repotray-item--existing",
-      index === selectedIndex ? "repotray-item--selected" : ""
+      "linktray-item",
+      item.status === "missing" ? "linktray-item--missing" : "linktray-item--existing",
+      index === selectedIndex ? "linktray-item--selected" : ""
     ].filter(Boolean).join(" ");
     const disabled = item.status === "missing" ? ' aria-disabled="true"' : "";
 
     return [
       `<li class="${classes}" data-index="${index}"${disabled}>`,
-      `<span class="repotray-item__symbol repotray-item__symbol--${item.status}" aria-hidden="true"></span>`,
-      '<div class="repotray-item__body">',
-      `<span class="repotray-item__filename">${escapeHtml(item.filename)}</span>`,
-      `<span class="repotray-item__path">${escapeHtml(item.displayPath)}</span>`,
+      `<span class="linktray-item__symbol linktray-item__symbol--${item.status}" aria-hidden="true"></span>`,
+      '<div class="linktray-item__body">',
+      `<span class="linktray-item__filename">${escapeHtml(item.filename)}</span>`,
+      `<span class="linktray-item__path">${escapeHtml(item.displayPath)}</span>`,
       "</div>",
       "</li>"
     ].join("");
@@ -498,29 +498,29 @@ function renderQuickSwitcherMarkup(
   const missingRows = rows.slice(view.availableItems.length + hasMissingSummary).join("");
 
   return [
-    '<section class="repotray-overlay" role="dialog" aria-label="Linked Markdown files">',
-    '<div class="repotray-panel">',
-    '<header class="repotray-toolbar">',
-    '<div class="repotray-toolbar__eyebrow">Index</div>',
-    '<div class="repotray-toolbar__headline">',
-    '<h2 class="repotray-toolbar__title">Linked Markdown</h2>',
-    `<div class="repotray-toolbar__count">${escapeHtml(formatCountLabel(view.availableItems.length, view.missingItems.length, query))}</div>`,
+    '<section class="linktray-overlay" role="dialog" aria-label="Linked Markdown files">',
+    '<div class="linktray-panel">',
+    '<header class="linktray-toolbar">',
+    '<div class="linktray-toolbar__eyebrow">Index</div>',
+    '<div class="linktray-toolbar__headline">',
+    '<h2 class="linktray-toolbar__title">Linked Markdown</h2>',
+    `<div class="linktray-toolbar__count">${escapeHtml(formatCountLabel(view.availableItems.length, view.missingItems.length, query))}</div>`,
     "</div>",
     "</header>",
-    '<div class="repotray-searchRow">',
-    '<label class="repotray-searchRow__label" for="repotray-search">Filter</label>',
-    `<input id="repotray-search" class="repotray-search" type="text" placeholder="Type a file, path, or status" value="${escapeHtml(query)}" />`,
+    '<div class="linktray-searchRow">',
+    '<label class="linktray-searchRow__label" for="linktray-search">Filter</label>',
+    `<input id="linktray-search" class="linktray-search" type="text" placeholder="Type a file, path, or status" value="${escapeHtml(query)}" />`,
     "</div>",
-    '<div class="repotray-body">',
-    view.availableItems.length > 0 ? '<span class="repotray-sectionLabel">Available</span>' : "",
-    view.availableItems.length > 0 ? `<ul class="repotray-list">${availableRows}</ul>` : "",
+    '<div class="linktray-body">',
+    view.availableItems.length > 0 ? '<span class="linktray-sectionLabel">Available</span>' : "",
+    view.availableItems.length > 0 ? `<ul class="linktray-list">${availableRows}</ul>` : "",
     missingSummaryRow,
     view.missingItems.length > 0 && !view.showMissingSummary
-      ? '<span class="repotray-sectionLabel">Missing</span>'
+      ? '<span class="linktray-sectionLabel">Missing</span>'
       : "",
     missingRows
-      ? `<ul class="repotray-list">${missingRows}</ul>`
-      : (!availableRows && !missingSummaryRow ? '<p class="repotray-empty">No linked notes match this filter.</p>' : ""),
+      ? `<ul class="linktray-list">${missingRows}</ul>`
+      : (!availableRows && !missingSummaryRow ? '<p class="linktray-empty">No linked notes match this filter.</p>' : ""),
     "</div>",
     "</div>",
     "</section>"
@@ -594,7 +594,7 @@ function bindOverlayEvents(
   controller: QuickSwitcher,
   rerender: () => void
 ): void {
-  const input = root.querySelector<HTMLInputElement>(".repotray-search");
+  const input = root.querySelector<HTMLInputElement>(".linktray-search");
   const clickableItems = root.querySelectorAll<HTMLElement>("[data-index]");
 
   input?.addEventListener("input", (event) => {
@@ -620,7 +620,7 @@ function ensureStyles(doc: Document): void {
   }
 
   const styleTag = doc.createElement("style");
-  styleTag.dataset.repotrayStyle = "true";
+  styleTag.dataset.linktrayStyle = "true";
   styleTag.textContent = quickSwitcherCss.trim() || fallbackQuickSwitcherCss;
   doc.head.append(styleTag);
 }

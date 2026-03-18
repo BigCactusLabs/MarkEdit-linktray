@@ -37,7 +37,7 @@ describe("createQuickSwitcher", () => {
     expect(switcher.render()).toContain("Missing (1)");
     expect(switcher.render()).toContain("plan.md");
     expect(switcher.render()).not.toContain("missing.md");
-    expect(switcher.render()).toContain("repotray-item__symbol--existing");
+    expect(switcher.render()).toContain("linktray-item__symbol--existing");
   });
 
   it("supports keyboard navigation", () => {
@@ -116,14 +116,14 @@ describe("createQuickSwitcher", () => {
 
     await adapter(pickerItems);
 
-    const overlay = document.querySelector(".repotray-overlay");
-    const input = document.querySelector<HTMLInputElement>(".repotray-search");
-    const styleTag = document.head.querySelector("style[data-repotray-style]");
+    const overlay = document.querySelector(".linktray-overlay");
+    const input = document.querySelector<HTMLInputElement>(".linktray-search");
+    const styleTag = document.head.querySelector("style[data-linktray-style]");
 
     expect(overlay).not.toBeNull();
     expect(input).not.toBeNull();
     expect(input?.readOnly).toBe(false);
-    expect(styleTag?.textContent).toContain(".repotray-overlay");
+    expect(styleTag?.textContent).toContain(".linktray-overlay");
 
     input!.value = "missing";
     input!.dispatchEvent(new Event("input", { bubbles: true }));
@@ -140,7 +140,7 @@ describe("createQuickSwitcher", () => {
 
     await adapter(pickerItems);
 
-    const input = document.querySelector<HTMLInputElement>(".repotray-search");
+    const input = document.querySelector<HTMLInputElement>(".linktray-search");
     input?.focus();
 
     const event = new KeyboardEvent("keyup", {

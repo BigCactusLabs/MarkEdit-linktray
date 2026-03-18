@@ -33,7 +33,7 @@ type MarkEditCommandAPI = {
 
 type PickerAdapter = (items: PickerItem[]) => void | Promise<void>;
 
-export function registerRepoTrayCommand(
+export function registerLinkTrayCommand(
   markedit: MarkEditCommandAPI,
   showPicker: PickerAdapter = createDefaultPickerAdapter(markedit)
 ): () => Promise<void> {
@@ -42,8 +42,8 @@ export function registerRepoTrayCommand(
 
     if (!currentFile?.filePath) {
       await markedit.showAlert({
-        title: "RepoTray unavailable",
-        message: "Open a saved Markdown file before running RepoTray."
+        title: "LinkTray unavailable",
+        message: "Open a saved Markdown file before running LinkTray."
       });
       return;
     }

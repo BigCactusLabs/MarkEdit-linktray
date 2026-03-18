@@ -1,8 +1,20 @@
 {
-  "name": "markedit-repotray",
-  "private": true,
+  "name": "markedit-linktray",
   "version": "0.1.0",
-  "description": "MarkEdit extension for quick navigation across linked Markdown repo notes.",
+  "description": "A MarkEdit extension that follows the links in your Markdown notes.",
+  "license": "MIT",
+  "author": "BigCactusLabs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BigCactusLabs/markedit-linktray.git"
+  },
+  "keywords": [
+    "markedit",
+    "markdown",
+    "extension",
+    "wiki-links",
+    "note-taking"
+  ],
   "scripts": {
     "build": "vite build",
     "test": "vitest run",
