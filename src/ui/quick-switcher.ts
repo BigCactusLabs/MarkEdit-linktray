@@ -621,10 +621,9 @@ function bindOverlayEvents(
     const target = (event.target as HTMLElement).closest<HTMLElement>("[data-index]");
     if (!target) return;
     const index = Number(target.dataset.index);
-    if (!Number.isNaN(index)) {
-      controller.hover(index);
-      rerender();
-    }
+    if (Number.isNaN(index) || index === controller.selectedIndex) return;
+    controller.hover(index);
+    rerender();
   });
 }
 
