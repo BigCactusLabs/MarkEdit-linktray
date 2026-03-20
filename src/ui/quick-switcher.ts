@@ -140,6 +140,7 @@ const fallbackQuickSwitcherCss = `
   color: rgb(35, 49, 64);
   font: inherit;
   text-align: left;
+  cursor: pointer;
 }
 
 .linktray-summary__label {
@@ -410,10 +411,11 @@ export function createQuickSwitcherAdapter(options: QuickSwitcherAdapterOptions)
 
       root.innerHTML = controller.render();
       input = root.querySelector<HTMLInputElement>(".linktray-search");
-      bindOverlayEvents(root, controller, render);
       input?.focus();
       input?.setSelectionRange(input.value.length, input.value.length);
     };
+
+    bindOverlayEvents(root, controller, render);
 
     const handleDocumentKeyDown = (event: KeyboardEvent) => {
       if (disposed) {
@@ -599,32 +601,30 @@ function bindOverlayEvents(
   controller: QuickSwitcher,
   rerender: () => void
 ): void {
-  const input = root.querySelector<HTMLInputElement>(".linktray-search");
-  const clickableItems = root.querySelectorAll<HTMLElement>("[data-index]");
-
-  input?.addEventListener("input", (event) => {
-    controller.setQuery((event.currentTarget as HTMLInputElement).value);
+  root.addEventListener("input", (event) => {
+    if (!(event.target as HTMLElement).matches(".linktray-search")) return;
+    controller.setQuery((event.target as HTMLInputElement).value);
     rerender();
   });
 
-  clickableItems.forEach((item) => {
-    item.addEventListener("click", () => {
-      const index = Number(item.dataset.index);
+  root.addEventListener("click", (event) => {
+    const target = (event.target as HTMLElement).closest<HTMLElement>("[data-index]");
+    if (!target) return;
+    const index = Number(target.dataset.index);
+    if (!Number.isNaN(index)) {
+      controller.click(index);
+      rerender();
+    }
+  });
 
-      if (!Number.isNaN(index)) {
-        controller.click(index);
-        rerender();
-      }
-    });
-
-    item.addEventListener("mouseenter", () => {
-      const index = Number(item.dataset.index);
-
-      if (!Number.isNaN(index)) {
-        controller.hover(index);
-        rerender();
-      }
-    });
+  root.addEventListener("mouseover", (event) => {
+    const target = (event.target as HTMLElement).closest<HTMLElement>("[data-index]");
+    if (!target) return;
+    const index = Number(target.dataset.index);
+    if (!Number.isNaN(index)) {
+      controller.hover(index);
+      rerender();
+    }
   });
 }
 

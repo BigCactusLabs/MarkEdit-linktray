@@ -95,6 +95,21 @@ describe("createQuickSwitcher", () => {
     expect(switcher.render()).toContain('aria-disabled="true"');
   });
 
+  it("expands missing items when the summary row is clicked", () => {
+    const switcher = createQuickSwitcher(pickerItems, {
+      onOpen: vi.fn(),
+      onClose: vi.fn()
+    });
+
+    expect(switcher.render()).toContain("Missing (1)");
+    expect(switcher.render()).not.toContain("missing.md");
+
+    switcher.click(1);
+
+    expect(switcher.render()).toContain("missing.md");
+    expect(switcher.render()).not.toContain("Missing (1)");
+  });
+
   it("moves selection on hover without triggering open", () => {
     const onOpen = vi.fn();
     const switcher = createQuickSwitcher(pickerItems, {

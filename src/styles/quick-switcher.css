@@ -136,6 +136,7 @@
   color: rgb(35, 49, 64);
   font: inherit;
   text-align: left;
+  cursor: pointer;
 }
 
 .linktray-summary__label {
