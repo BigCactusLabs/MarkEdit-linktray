@@ -42,8 +42,8 @@ export function registerLinkTrayCommand(
 
     if (!currentFile?.filePath) {
       await markedit.showAlert({
-        title: "LinkTray unavailable",
-        message: "Open a saved Markdown file before running LinkTray."
+        title: "MarkEdit-linktray unavailable",
+        message: "Open a saved Markdown file before running MarkEdit-linktray."
       });
       return;
     }

@@ -137,8 +137,8 @@ describe("registerLinkTrayCommand", () => {
 
     expect(showPicker).not.toHaveBeenCalled();
     expect(showAlert).toHaveBeenCalledWith({
-      title: "LinkTray unavailable",
-      message: "Open a saved Markdown file before running LinkTray."
+      title: "MarkEdit-linktray unavailable",
+      message: "Open a saved Markdown file before running MarkEdit-linktray."
     });
   });
 });

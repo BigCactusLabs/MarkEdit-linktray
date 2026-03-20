@@ -1,8 +1,10 @@
-# LinkTray
+# MarkEdit-linktray
 
-**Your notes already know where they point. LinkTray just asks them.**
+**Your notes already know where they point. MarkEdit-linktray just asks them.**
 
 A [MarkEdit](https://github.com/MarkEdit-app/MarkEdit) extension that reads the links in your current Markdown note and drops them into a keyboard-first quick switcher. One shortcut, every linked file, no hunting.
+
+![MarkEdit-linktray quick switcher](docs/markedit-linktray-ex.png)
 
 ---
 
@@ -36,7 +38,7 @@ npm install && npm run build
 | `Enter` on **Missing (N)** | Expand or collapse missing links |
 | `Escape` | Close |
 
-LinkTray parses both `[label](path.md)` and `[[wiki]]` links, including targets with anchor fragments (`file.md#heading`) and parentheses in filenames. Paths are repo-relative when a `.git` root is discoverable, document-relative otherwise. Green dot means the file exists. Red dot means it doesn't — yet.
+MarkEdit-linktray parses both `[label](path.md)` and `[[wiki]]` links, including targets with anchor fragments (`file.md#heading`) and parentheses in filenames. Paths are repo-relative when a `.git` root is discoverable, document-relative otherwise. Green dot means the file exists. Red dot means it doesn't — yet.
 
 > **Note:** MarkEdit sandboxes file access. If a linked note won't open, grant its parent folder access in MarkEdit preferences.
 
@@ -62,7 +64,7 @@ npm run build     # -> dist/markedit-linktray.js
 
 ## Contributing
 
-LinkTray is small on purpose. If you have an idea, [open an issue](https://github.com/BigCactusLabs/markedit-linktray/issues) first. It's easier to align on direction before writing code.
+MarkEdit-linktray is small on purpose. If you have an idea, [open an issue](https://github.com/BigCactusLabs/markedit-linktray/issues) first. It's easier to align on direction before writing code.
 
 Bug reports and PRs are welcome.
 

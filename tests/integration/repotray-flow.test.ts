@@ -16,7 +16,7 @@ function createFileInfo(filePath: string) {
   };
 }
 
-describe("LinkTray integration flow", () => {
+describe("MarkEdit-linktray integration flow", () => {
   it("groups available links first, collapses missing links by default, and only opens existing targets", async () => {
     let quickSwitcher: QuickSwitcher | undefined;
     const openFile = vi.fn().mockResolvedValue(true);

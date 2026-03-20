@@ -12,7 +12,7 @@
 
 ## 0.1.0 — 2026-03-09
 
-First release. LinkTray reads Markdown links and wiki links from the active document, resolves them relative to the current file, and presents the results in a keyboard-first quick switcher.
+First release. MarkEdit-linktray reads Markdown links and wiki links from the active document, resolves them relative to the current file, and presents the results in a keyboard-first quick switcher.
 
 - Parses `[label](path.md)` and `[[wiki]]` link formats
 - Resolves paths repo-relative when a `.git` root exists, document-relative otherwise
